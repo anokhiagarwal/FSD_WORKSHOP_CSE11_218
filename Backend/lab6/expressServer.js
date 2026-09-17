@@ -97,7 +97,7 @@ app.put("/edit/:id", (req, res)=>{
 
             )
         }
-        userData[index]={
+        array[index]={
             id,
             name,
             age,
@@ -113,3 +113,46 @@ app.put("/edit/:id", (req, res)=>{
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`)
 })
+
+
+app.get("/delete/:id", (req, res) => {
+    try {
+        const { id } = req.params;
+        const index = array.findIndex((user) => user.id === parseInt(id));
+        if (index === -1) {
+            return res.status(404).json({
+                message: "User not found"
+            });
+        }
+        array.splice(index, 1);
+        res.status(200).json({
+            message: "User deleted successfully"
+        });
+    } catch (err) {
+        console.error("Error", err.message);
+        res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+});
+
+app.get("/userById/:id", (req, res) => {
+    try {
+        const { id } = req.params;
+        const user = array.find((user) => user.id === parseInt(id));
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found"
+            });
+        }
+        res.status(200).json({
+            message: "User found",
+            userData: user
+        });
+    } catch (err) {
+        console.error("Error", err.message);
+        res.status(500).json({
+            message: "Internal server error"
+        });
+    }
+});
