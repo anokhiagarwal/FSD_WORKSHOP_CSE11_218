@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Full screen */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main white container */
+
+.container {
+  width: 700px;
+  min-height: 450px;
+
+  padding: 40px;
+
+  background-color: white;
+
+  border-radius: 15px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* API Tester */
+
+.container h1 {
+  margin: 0 0 35px 0;
+
+  font-size: 32px;
+  font-weight: bold;
+
+  text-align: center;
+}
+
+/* GET + URL + Send Request */
+
+.request-section {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+/* Dropdown */
+
+.request-section select {
+  width: 100px;
+  height: 45px;
+
+  padding: 0 10px;
+
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+
+  background-color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+/* URL */
+
+.request-section input {
+  flex: 1;
+
+  height: 45px;
+
+  padding: 0 15px;
+
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+
+  font-size: 16px;
+
+  outline: none;
+}
+
+.request-section input:focus {
+  border-color: #555555;
+}
+
+/* Send Request */
+
+.request-section button {
+  height: 45px;
+
+  padding: 0 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: #222222;
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.request-section button:hover {
+  background-color: #444444;
+}
+
+/* Response Section */
+
+.response-section {
+  width: 100%;
+
+  margin-top: 35px;
+}
+
+/* Response + 200 */
+
+.response-header {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.response-header h2 {
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 200 */
+
+.status {
+  padding: 7px 17px;
+
+  background-color: #28a745;
+
+  color: white;
+
+  border-radius: 20px;
+
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* BLACK RESPONSE BOX */
+
+.response-box {
+  width: 100%;
+  height: 220px;
+
+  margin-top: 15px;
+
+  padding: 18px;
+
+  background-color: black;
+  color: white;
+
+  border-radius: 10px;
+
+  font-family: monospace;
+  font-size: 14px;
+
+  text-align: left;
+
+  overflow-y: auto;
+
+  white-space: pre-wrap;
+}
