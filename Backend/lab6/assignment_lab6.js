@@ -9,7 +9,7 @@ app.use(express.json());
 const array = [
     {
         id: 1,
-        name: "Ananya",
+        name: "Ananya Singh",
         age: 20
     },
     {
