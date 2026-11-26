@@ -64,11 +64,11 @@ app.get("/user/:id", (req, res) => {
     }
 });
 
-app.post("/create" , (req,res)=>{
-    try{
-        const {name , age} = req.body ;
+app.post("/create", (req, res) => {
+    try {
+        const { name, age } = req.body;
         const newUser = {
-            id: array.length+1,
+            id: array.length + 1,
             name,
             age,
         };
@@ -80,33 +80,33 @@ app.post("/create" , (req,res)=>{
             userData: newUser
         })
     }
-    catch(err){
+    catch (err) {
         console.error(err.message)
         res.status(500).json({
             message: "Internal server error"
         })
     }
 })
-app.put("/edit/:id", (req, res)=>{
-    try{
-        const id= req.params.id;
-        const{name,age} =req.body;
-        const index = array.findIndex((u)=> u.id ==id);
-        if(index ==-1){
-            return res.status(400).json({message:"user not found"}
+app.put("/edit/:id", (req, res) => {
+    try {
+        const id = req.params.id;
+        const { name, age } = req.body;
+        const index = array.findIndex((u) => u.id == id);
+        if (index == -1) {
+            return res.status(400).json({ message: "user not found" }
 
             )
         }
-        array[index]={
+        array[index] = {
             id,
             name,
             age,
         };
-        return res.status(200).json({message:"user updated successfully"})
+        return res.status(200).json({ message: "user updated successfully" })
     }
-    catch (err){
+    catch (err) {
         console.error("Error", err.message);
-        res.status(500).json({message:"Internal server error"})
+        res.status(500).json({ message: "Internal server error" })
     }
 })
 
