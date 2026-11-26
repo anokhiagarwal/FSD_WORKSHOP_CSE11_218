@@ -16,7 +16,7 @@ const array = [
         id: 2,
         name: "Akshat",
         age: 21
-    }
+    },
     {
         id: 3,
         name: "Anokhi",
