@@ -21,7 +21,7 @@ async function readFile() {
   }
 }
 async function run() {
-  
+
   const server = http.createServer(async (req, res) => {
     const url = req.url;
     const method = req.method;
@@ -40,24 +40,24 @@ async function run() {
       res.end(JSON.stringify(sysInfo));
     }
     else if (parsedUrl.pathname.startsWith("/users/") && method === "GET") {
-        const id = Number(parsedUrl.pathname.split("/")[2]);
-        const employees = await readFile();
+      const id = Number(parsedUrl.pathname.split("/")[2]);
+      const employees = await readFile();
 
-        const user = employees.find(
-            (emp) => emp.id === id
-        );
+      const user = employees.find(
+        (emp) => emp.id === id
+      );
 
-        res.setHeader("Content-Type", "application/json");
+      res.setHeader("Content-Type", "application/json");
 
-        if (user) {
-            res.statusCode = 200;
-            res.end(JSON.stringify(user));
-        } else {
-            res.statusCode = 404;
-            res.end(JSON.stringify({
-                message: "User not found"
-            }));
-        }
+      if (user) {
+        res.statusCode = 200;
+        res.end(JSON.stringify(user));
+      } else {
+        res.statusCode = 404;
+        res.end(JSON.stringify({
+          message: "User not found"
+        }));
+      }
     }
     else if (url === "/employee" && method === "GET") {
       res.statusCode = 200;
@@ -94,7 +94,7 @@ async function run() {
           );
         }
       });
-    } 
+    }
     else if (url === "/users/update" && method === "PUT") {
       let body = "";
 
